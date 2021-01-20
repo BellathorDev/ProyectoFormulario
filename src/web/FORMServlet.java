@@ -22,18 +22,25 @@ public class FORMServlet extends HttpServlet{
 		
 		int edad = Integer.parseInt(peticion.getParameter("edad"));
 		
-		String resultado = "";
+		String nomCompleto = "";
 		
+		String mayorEdad = "";
+				
 		if(edad >= 18) {
 			
-			resultado =""+"\nNombre Completo: "+ nombre +" "+ apellido + "\nEdad:"+edad+" (Mayor de edad)" + "\nCorreo: "+email;
-			
+			nomCompleto = ""+nombre +" "+ apellido;
+			mayorEdad =""+ "Es mayor de edad, su email es: " + email;
+						
 		}else{
-			resultado =""+"\nNombre Completo: "+ nombre +" "+ apellido + "\nEdad:"+edad+" (Menor de edad)";
+			
+			nomCompleto = "" + nombre + apellido;
+			mayorEdad = "" + "Es menor de edad no se puede mostrar correo";
 			
 		}
 		
-		peticion.getSession().setAttribute("resultado", resultado);
+		peticion.getSession().setAttribute("nomCompleto", nomCompleto);
+		peticion.getSession().setAttribute("mayorEdad", mayorEdad);
+		peticion.getSession().setAttribute("edad", edad);		
 		respuesta.sendRedirect("index.jsp");
 		
 	}

@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Calculadora</title>
+<title>Formulario Contacto</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
@@ -33,23 +33,39 @@
 					</div>
 					
 					<!-- Boton de Envio de datos y conexion con Servlet-->
-					<input type="submit" class="btn btn-warning btn-block" id="mostrar" disabled value="Mostrar">
+					<input type="submit" class="btn btn-warning btn-block" id="mostrar" value="Mostrar">
 					<div class="form-group mt-4">
-					<label for="mostrar">Mostrar Información</label>
-					
-					<!-- Intento de info en textarea -->
-					<textarea rows="6" cols="40" class="form-control" id="resultado" disabled name="resultado" value="<%
-						if(request.getSession().getAttribute("resultado")
+
+					<label for="mostrar">Nombre completo</label>
+					<input type="text" class="form-control" id="nomCompleto" name="nomCompleto" disabled value="<%
+						if(request.getSession().getAttribute("nomCompleto")
 								==null){
 							out.println("");
 						}else{
-							
-							out.print(request.getSession().getAttribute("resultado"));
-							
+							out.print(request.getSession().getAttribute("nomCompleto"));		
 						}
-									
 					
-					%>>"></textarea>
+					%>">
+					<label for="mostrar" class="mt-2">Edad</label>
+					<input type="text" class="form-control" id="edad" name="edad" disabled value="<%
+						if(request.getSession().getAttribute("edad")
+								==null){
+							out.println("");
+						}else{
+							out.print(request.getSession().getAttribute("edad"));		
+						}
+					
+					%>">
+					<label for="mostrar" class="mt-2">E-mail</label>
+					<input type="text" class="form-control" id="mayorEdad" name="mayorEdad" disabled value="<%
+						if(request.getSession().getAttribute("mayorEdad")
+								==null){
+							out.println("");
+						}else{
+							out.print(request.getSession().getAttribute("mayorEdad"));		
+						}
+					
+					%>">
 					
 					</div>
 					
